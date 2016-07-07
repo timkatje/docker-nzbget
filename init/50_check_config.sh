@@ -11,7 +11,9 @@ if [ ! -f /config/nzbget.conf ]; then
   sed -i -e "s#\(ScriptDir=\).*#\1$\{MainDir\}/scripts#g" /config/nzbget.conf
   chown abc:abc /config/nzbget.conf
   chmod u+rw /config/nzbget.conf
-  chown -R abc:abc /downloads
+  chown -R abc:abc /config
+  chown -R abc:abc /incomplete
+  chown -R abc:abc /temporary
 fi
 
 
