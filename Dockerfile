@@ -1,5 +1,5 @@
 FROM linuxserver/baseimage
-MAINTAINER Stian Larsen <lonixx@gmail.com>
+MAINTAINER Tim Katje <tmkatje@gmail.com>
 
 ENV APTLIST="python"
 
@@ -14,5 +14,5 @@ ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
  
 #Mappings
-VOLUME /config /downloads
-EXPOSE 6789
+VOLUME /config:/DockerStorage/nzbget /downloads:/transfer/nzbget
+PORT 6789:6789
