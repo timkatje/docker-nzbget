@@ -5,7 +5,9 @@ if [ ! -f /config/nzbget.conf ]; then
   echo "No config found, copys default now"
   cp -v /app/nzbget.conf /config/nzbget.conf
   echo "Changeing some defaults to match our container"
-  sed -i -e "s#\(MainDir=\).*#\1/downloads#g" /config/nzbget.conf
+  sed -i -e "s#\(MainDir=\).*#\1/config#g" /config/nzbget.conf
+  sed -i -e "s#\(InterDir=\).*#\1/incomplete#g" /config/nzbget.conf
+  sed -i -e "s#\(TempDir=\).*#\1/temporary#g" /config/nzbget.conf
   sed -i -e "s#\(ScriptDir=\).*#\1$\{MainDir\}/scripts#g" /config/nzbget.conf
   chown abc:abc /config/nzbget.conf
   chmod u+rw /config/nzbget.conf
