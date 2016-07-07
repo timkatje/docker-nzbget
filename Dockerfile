@@ -14,5 +14,8 @@ ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
  
 #Mappings
-VOLUME /config:/DockerStorage/nzbget /downloads:/transfer/nzbget
-PORT 6789:6789
+#VOLUME /config:/DockerStorage/nzbget /downloads:/transfer/nzbget
+VOLUME /config:/DockerStorage/nzbget \
+/incomplete:/transfer/nzbget/incomplete \
+/temporary:/transfer/nzbget/tmp
+EXPOSE 6789:6789
